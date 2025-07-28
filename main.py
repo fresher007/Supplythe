@@ -11,6 +11,7 @@ from telegram.ext import (
 )
 
 # === BOT CONFIG ===
+BOT_TOKEN = os.environ.get("8136778569:AAGyozMolk6ixcYPK-ZppMUvET7LH3-YSHw")
 BOT_TOKEN = "8136778569:AAGyozMolk6ixcYPK-ZppMUvET7LH3-YSHw"
 OWNER_ID = "8136778569"  # Only this Telegram ID can upload videos
 DATA_FILE = "videos.json"
