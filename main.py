@@ -1,33 +1,32 @@
-import logging
 from telegram import Update
-from telegram.ext import ApplicationBuilder, ContextTypes, CommandHandler, MessageHandler, filters
+from telegram.ext import (
+    ApplicationBuilder,
+    ContextTypes,
+    CommandHandler,
+    MessageHandler,
+    filters
+)
 
-BOT_TOKEN = "your_telegram_bot_token"  # Replace with your bot token
+import logging
 
-# Setup basic logging
+# Replace with your bot token
+BOT_TOKEN = "YOUR_BOT_TOKEN"
+
+# Logging setup
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
 
-# Start command
+# Start command handler
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    await update.message.reply_text("Hello! Send me a video to begin.")
+    await update.message.reply_text("Hi! Send me a video to begin.")
 
-# Handle video
+# Handle videos
 async def handle_video(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    video = update.message.video
-    if video:
-        await update.message.reply_text("Video received ✅\n(Here you'd upload and return the ShrinkMe link.)")
-        # Here you can add logic to:
-        # 1. Download the video
-        # 2. Upload it somewhere (like anonfiles or streamtape)
-        # 3. Shorten the download URL using ShrinkMe API
-        # 4. Send back the final link
-    else:
-        await update.message.reply_text("Please send a valid video file.")
+    await update.message.reply_text("Video received. Working on it...")
 
-# Main
+# Main bot setup
 def main():
     app = ApplicationBuilder().token(BOT_TOKEN).build()
 
